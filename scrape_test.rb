@@ -36,7 +36,7 @@ class Scraper
     doc = Nokogiri::HTML(open(url_2))
     binding.pry
     scraped_details[:long_descrip] = doc.css(".event-description").text.strip
-    scraped_details[:start_time] = doc.at(".container-inner").children[8].text.strip #doc.at(".container-inner .agenda-item strong").text
+    scraped_details[:start_time] = doc.at(".container-inner .agenda-item strong").text #
     scraped_details[:address] = doc.at(".container-inner//span[@itemprop = 'name']").children.text + ", " +
       doc.at(".container-inner//span[@itemprop = 'streetAddress']").children.text + ", " +
       doc.at(".container-inner//span[@itemprop = 'addressLocality']").children.text + ", " +
