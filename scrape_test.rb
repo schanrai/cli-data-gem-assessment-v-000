@@ -33,7 +33,7 @@ class Scraper
     url_1 ="https://www.startupgrind.com/events/details/startup-grind-san-francisco-presents-ryan-popple-proterra#/"
     url_2 ="https://www.startupgrind.com/events/details/startup-grind-johannesburg-presents-come-party-with-joburgs-vibrant-entrepreneur-community#/"
     scraped_details = {}
-    doc = Nokogiri::HTML(open(url_2))
+    doc = Nokogiri::HTML(open(url_1))
     binding.pry
     scraped_details[:long_descrip] = doc.css(".event-description").text.strip
     scraped_details[:time] = doc.at(".container-inner").children[8].text.strip
