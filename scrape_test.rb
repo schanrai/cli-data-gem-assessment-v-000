@@ -41,10 +41,7 @@ class Scraper
       doc.at(".container-inner//span[@itemprop = 'streetAddress']").children.text + ", " +
       doc.at(".container-inner//span[@itemprop = 'addressLocality']").children.text + ", " +
       doc.at(".container-inner//span[@itemprop = 'postalCode']").children.text
-    scraped_details[:speakers] = doc.css(".event-speaker-list h2").text.strip     #doc.css(".carousel-inner").children.css("img").map {|y| y.attribute('alt').value}
-                                #doc.css(".event-speaker-list//h2[@itemprop = 'name']").children.text
-                                #doc.css(".event-speaker-list//h2[@itemprop = 'name']").map {|y| y.children.text.strip}
-
+    scraped_details[:speakers] = doc.css(".event-speaker-list//h2[@itemprop = 'name']").map {|y| y.children.text.strip}
     scraped_details
     end
     #long_descrip => doc.css(".event-description").text.strip
