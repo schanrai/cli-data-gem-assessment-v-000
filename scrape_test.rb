@@ -29,10 +29,11 @@ class Scraper
 
 
   def scrape_details_page
+    url_3 = "https://www.startupgrind.com/events/details/startup-grind-birmingham-uk-presents-we-are-hosting-simon-washbrook-founder-of-popcorn-email#/"
     url_1 ="https://www.startupgrind.com/events/details/startup-grind-san-francisco-presents-ryan-popple-proterra#/"
     url_2 ="https://www.startupgrind.com/events/details/startup-grind-johannesburg-presents-come-party-with-joburgs-vibrant-entrepreneur-community#/"
     scraped_details = {}
-    doc = Nokogiri::HTML(open(url_1))
+    doc = Nokogiri::HTML(open(url_3))
     scraped_details[:long_descrip] = doc.css(".event-description").text.strip
     scraped_details[:time] = doc.at(".container-inner").children[8].text.strip
     scraped_details[:address] = doc.at(".container-inner//span[@itemprop = 'name']").children.text + ", " +
